@@ -1,0 +1,152 @@
+/* USER AND CART CARDS */
+
+.card-container {
+  display:grid;
+  grid-template-columns: repeat(3,1fr);  
+  row-gap: 1rem;
+  column-gap: 0px;
+  justify-items: center;
+  align-items: center;
+}
+
+.card-user-info-1, .card-user-info-2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.user-card-container {
+  width: 300px;
+  height: 200px;
+}
+
+.user-card-container {
+  width: 250px;
+}
+
+.userRequestPageImage {
+  width: 40%;
+  height: 40%;
+}
+
+
+/* MIDDLE BOX - CART AREA */
+.traded-item {
+  margin-top: 10%;
+  width: 30%;
+  height: 30%;
+}
+
+.cart-section {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: arial;
+  display:block;
+  width: 600px;
+}
+
+/*  */
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.request-bton {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: white;
+  background-color: #0a8f19;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* UP TOP PRODUCT CARD DISPLAY OF THE ITEM YOU WANT */
+.product-card-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  height: 550px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  margin-bottom: 5%;
+}
+
+.selected-item {
+  width: 300px;
+  height: 300px;
+  position:relative; 
+  margin-left: auto;
+  margin-right:auto;
+  display: block;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.item-name {
+  color: black;
+  font-size: 28px;
+}
+
+.details {
+  color: black;
+  font-size: 16px;
+  font-family: arial;
+  padding-top: 6px;
+}
+
+.userItemHeader {
+  margin-left: 80px;
+  margin-bottom: 80px;
+}
+
+.swap p{
+  margin-top: 8%;
+}
+
+.swap h3{
+  margin-top: 12%;
+}
+
+/* BACK TO HOME BUTTON */
+.home-button {
+  border-color: gray;
+  background-color: white;
+  font-size: 18px;
+  border: solid #0a8f19;
+  border-width: thin;
+  font-size: 1.5;
+  font-weight: bold;
+  padding: 10px 12px;
+}
+
+.home-button:hover{
+  background-color: #d4d2d4;
+}
+
+.home-button-container {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 3%;
+  margin-right: 10%
+}
+
+
+/* USERS ITEMS CONTAINER */
+.userItemsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  column-gap: 0px;
+  justify-items: center;
+  align-items: center;
+}

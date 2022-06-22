@@ -1,0 +1,53 @@
+.myItemsButton {
+    border-color: gray;
+    background-color: white;
+    font-size: 18px;
+    border: solid #0a8f19;
+    border-width: thin;
+    font-size: 1.5;
+    font-weight: bold;
+    padding: 10px 12px;
+}
+
+.myItemsButton:hover{
+    background-color: #d4d2d4;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 3%;
+    margin-right: 10%
+}
+
+
+.inputBox {
+    width: 60%;
+    font-size: 1rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    border: 1px solid #0a8f19;
+    border-radius: 0;
+    padding-left: 0.5rem;
+}
+
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%
+}
+
+/* 
+.button {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #3d3a3d;
+    font-size: 22px;
+    background: #ffffff;
+    padding: 12px 15px 12px 15px;
+    border: solid #403e40 1px;
+    text-decoration: none;
+  } */

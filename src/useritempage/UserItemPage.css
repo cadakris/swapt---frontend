@@ -1,0 +1,68 @@
+.useritemspagecontainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 18rem 18rem; */
+    row-gap: 1rem;
+    column-gap: 0px;
+    justify-items: center;
+    align-items: center;
+}
+
+.backToHomeButton {
+    border-color: gray;
+    background-color: white;
+    font-size: 18px;
+    border: solid #0a8f19;
+    border-width: thin;
+    font-size: 1.5;
+    font-weight: bold;
+    padding: 10px 12px;
+}
+
+.backToHomeButton:hover {
+    background-color: #d4d2d4;
+}
+
+
+.homeButtonContainer {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 3%;
+    margin-right: 10%
+}
+
+.userInfo {
+    margin-left: 8%;
+    margin-bottom: 5%;
+}
+
+.userInfo h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+}
+
+.userInfo h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5;
+}
+
+.userImage {
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+}
+
+.editUserButton {
+    border-color: gray;
+    background-color: white;
+    font-size: 18px;
+    border: solid #0a8f19;
+    border-width: thin;
+    font-size: 1.5;
+    font-weight: bold;
+    padding: 10px 12px;
+}
+
+.editUserButton:hover {
+    background-color: #d4d2d4;
+}
