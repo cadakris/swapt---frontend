@@ -7,11 +7,7 @@ import TradeImages from '../tradeimages/TradeImages'
 function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest, setMoney, setSpin, spin, toggleTradeItem, setToggleTradeItem, setToggleNewInfo, toggleNewInfo}) {
 
     const [userInfo, setUserInfo] = useState({})
-
-
     const { bio, full_name, location, items, image } = userItems
- 
-
     let navigate = useNavigate()
 
     //This is grabbing the information of the user we are trying to swap with
@@ -31,17 +27,18 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
         />
     })
 
-    function handleClick() {
-        navigate("/")
-        setToggleTradeItem(prev =>!prev)
-        setToggleNewInfo(prev =>!prev)
-    }
+    // function handleClick() {
+    //     navigate("/")
+    //     setToggleTradeItem(prev =>!prev)
+    //     setToggleNewInfo(prev =>!prev)
+    // }
 
     return (
         <>
             <div className='home-button-container'>
-            <button onClick={handleClick} className='home-button'>Back To Home</button>
-                {/* <button onClick={() => navigate("/")} className='home-button'>Back To Home</button> */}
+            {/* <button onClick={handleClick} className='home-button'>Back To Home</button> */}
+            <button className='home-button' onClick={() => navigate("/")}> BACK TO HOME </button>
+            {/* <buttonn onClick={handleClick}>HOME</buttonn> */}
             </div>
 
             

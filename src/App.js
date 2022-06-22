@@ -16,8 +16,6 @@ function App() {
   const [toggleTradeItem, setToggleTradeItem] = useState(true)
   const [toggleNewInfo, setToggleNewInfo] = useState(true)
 
-
-
   useEffect(() => {
     fetch('http://localhost:9292/excludeuserloggedinitems')
         .then(res => res.json())
@@ -31,34 +29,12 @@ function App() {
     fetch('http://localhost:9292/userincludeitems')
       .then(res => res.json())
       .then(data => setUserItems(data))
-},[userItems])
+},[])
 
 
 function handleUserInfoEditClick () {
   setShowEditForm((showEditForm) => !showEditForm)
 }
-
-
-// function addItem(newestItem) {
-//   setUserItems({...userItems, items: [...userItems.items, newestItem]}) 
-//   console.log ("new", newestItem)
-// }
-
-//console.log ("useritems", userItems)
-
-// function updateUserInfo(updatedUserInfo) {
-//   const newUserInfo = userItems.map(userInfo => {
-//     if (userInfo.id === updatedUserInfo.id) {
-//       console.log("newuserinfo", newUserInfo)
-//       return updatedUserInfo
-//     } else {
-//       return userItems
-//     }
-//   })
-//   setUserItems({...userItems, [updatedUserInfo]})
-// }
-
-
 
 //This function handles the actual trade when clicked
 function handleRequest (item1, item2) {
@@ -77,15 +53,11 @@ alert(`You successfully swap't your item, good for you. You owe $${money}`)
     if(item.id === item1.id) {
       return {...item, user_id: item2.user_id}
     }
-    else if(item.id === item2.id){
-      deleteItemWhenSwapped(item2)
-      // let newIdItem = {...item, user_id: item1.user_id}
-      
-    }
-    else {
-      return item
-    }
   }))
+.then(() => {
+  setItems(items.filter(item => item.id !== item2.id
+  ))
+})
 
   setUserItems({...userItems, items: userItems.items.map( item => {
     if(item.id === item1.id) {
@@ -96,35 +68,25 @@ alert(`You successfully swap't your item, good for you. You owe $${money}`)
     }
   })
 })
-setToggleTradeItem(false)
-setToggleNewInfo(false)
-cart("")
+// setToggleTradeItem(false)
+// setToggleNewInfo(false)
+// cart("")
 })
 }
 
 //Delete the item when it is actually switched
-
   function deleteItem(deletedItem) {
     fetch(`http://localhost:9292/itemdelete/${deletedItem.id}`, {
       method: "DELETE",
     })
       setUserItems({...userItems, items: userItems.items.filter(item => item.id !== deletedItem.id)})
-    
   }
-
-    function deleteItemWhenSwapped(deletedItem) {
-      fetch('http://localhost:9292/itemdelete/${deletedItem.id}', {
-        method: "DELETE",
-      })
-      setItems(items.filter(item => item.id !== deletedItem.id))
-    }
 
   return (
     <>
     <div className="logocontainer">
     <h1> <img className="logoimage" src="https://images.squarespace-cdn.com/content/v1/5671782205f8e269f6f413a3/1629143864755-FN7KTQ3NG3YPCM11PQB7/Font+%281%29.png?format=300w"></img>SWAP'T</h1>
     </div>
-
 
     <Router>
     <Routes>
