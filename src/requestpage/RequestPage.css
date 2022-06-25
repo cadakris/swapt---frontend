@@ -12,6 +12,7 @@
 .card-user-info-1, .card-user-info-2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
+  padding: 10px 5px;
 }
 
 .user-card-container {
@@ -41,7 +42,7 @@
   text-align: center;
   font-family: arial;
   display:block;
-  width: 600px;
+  width: 550px;
 }
 
 /*  */
@@ -70,7 +71,7 @@
 /* UP TOP PRODUCT CARD DISPLAY OF THE ITEM YOU WANT */
 .product-card-container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 600px;
+  max-width: 550px;
   height: 550px;
   margin: auto;
   text-align: center;
@@ -105,8 +106,9 @@
 }
 
 .userItemHeader {
-  margin-left: 80px;
-  margin-bottom: 80px;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
 }
 
 .swap p{
@@ -149,4 +151,16 @@
   column-gap: 0px;
   justify-items: center;
   align-items: center;
+}
+
+/* TOAST */
+.modifiedToast {
+  font-family: 'Poppins', sans-serif !important;
+  background-color: rgb(72, 72, 72) !important;
+  text-align: center;
+  color: white !important;
+  font-style: italic;
+  font-weight: bold;
+  width: 400px;
+  border-radius: 20px;
 }

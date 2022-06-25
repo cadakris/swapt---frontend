@@ -50,8 +50,8 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
         <div className="userInfo">
           <img className="userImage" src={image} alt={full_name}></img>
           <h1>{full_name}</h1>
-          <h3>Location: {location}</h3>
-          <h3>Bio: {bio}</h3>
+          <h3>Location: <br/>{location}</h3>
+          <h3>Bio: <br/> {bio}</h3>
           <button className="editUserButton"onClick={handleUserInfoEditClick}>Edit Profile</button>
         </div>
             

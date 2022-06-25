@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './home/Home'
 import RequestPage from './requestpage/RequestPage';
 import UserItemPage from './useritempage/UserItemPage';
+import { ToastContainer, toast} from 'react-toastify';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [userItems, setUserItems] = useState({}) //grabbing the users, then grabbing the items
@@ -23,23 +25,23 @@ function App() {
           setItems(itemData)
           console.log("itemData", itemData)
           })
-}, [])
+}, [items.id])
 
   useEffect(() => {  
     fetch('http://localhost:9292/userincludeitems')
       .then(res => res.json())
       .then(data => setUserItems(data))
-},[])
+},[userItems.id])
 
 
 function handleUserInfoEditClick () {
   setShowEditForm((showEditForm) => !showEditForm)
 }
 
+const savedNotify =() => toast.dark(`You successfully swap't your item. You owe $${money}`)
+
 //This function handles the actual trade when clicked
 function handleRequest (item1, item2) {
-alert(`You successfully swap't your item, good for you. You owe $${money}`)
-
   fetch(`http://localhost:9292/item/swap/${item1.id}/${item2.id}`, {
     method: "PATCH",
     headers: {
@@ -47,16 +49,16 @@ alert(`You successfully swap't your item, good for you. You owe $${money}`)
     }
   })
  .then(resp => resp.json())
- .then(() => {  
+ .then(() => {
   setItems(items.map(item => {
-
     if(item.id === item1.id) {
       return {...item, user_id: item2.user_id}
+    } else {
+      return item
     }
   }))
 .then(() => {
-  setItems(items.filter(item => item.id !== item2.id
-  ))
+  setItems(items.filter(item => item.id !== item2.id))
 })
 
   setUserItems({...userItems, items: userItems.items.map( item => {
@@ -68,10 +70,8 @@ alert(`You successfully swap't your item, good for you. You owe $${money}`)
     }
   })
 })
-// setToggleTradeItem(false)
-// setToggleNewInfo(false)
-// cart("")
 })
+savedNotify()
 }
 
 //Delete the item when it is actually switched
@@ -85,7 +85,7 @@ alert(`You successfully swap't your item, good for you. You owe $${money}`)
   return (
     <>
     <div className="logocontainer">
-    <h1> <img className="logoimage" src="https://images.squarespace-cdn.com/content/v1/5671782205f8e269f6f413a3/1629143864755-FN7KTQ3NG3YPCM11PQB7/Font+%281%29.png?format=300w"></img>SWAP'T</h1>
+    <h1 className="mainHeader"> <img className="logoimage" src="https://images.squarespace-cdn.com/content/v1/5671782205f8e269f6f413a3/1629143864755-FN7KTQ3NG3YPCM11PQB7/Font+%281%29.png?format=300w"></img>SWAP'T</h1>
     </div>
 
     <Router>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import './RequestPage.css'
+import { ToastContainer,toast} from 'react-toastify';
 import TradeImages from '../tradeimages/TradeImages'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest, setMoney, setSpin, spin, toggleTradeItem, setToggleTradeItem, setToggleNewInfo, toggleNewInfo}) {
@@ -58,7 +60,8 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
             <div className='card-container'>
                 <div className="user-card-container">
                     <div className='card-user-info-1'>
-                        <h3>Swap with {userInfo.full_name}</h3>
+                        <h3>SWAP WITH </h3>
+                        <h3>{userInfo.full_name}</h3>
                         <img className="userRequestPageImage" src={userInfo.image} alt='Item' />
                         <h3 className='title'>{userInfo.full_name}</h3>
                         <p>{userInfo.location}</p>
@@ -84,7 +87,8 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
 
                 <div className="user-card-container">
                     <div className='card-user-info-2'>
-                        <h3>Your Profile: {full_name}</h3>
+                        <h3>Your Profile</h3> 
+                        <h3>{full_name}</h3>
                         <div className="userImageContainer">
                             <img className="userRequestPageImage" src={image} alt="animjage" />
                         </div>
@@ -97,12 +101,11 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
             :
             null
         }
-
-            
-            <h1 className="userItemHeader">Select An Item To Swap With {userInfo.full_name}</h1>
+            <h1 className="userItemHeader">Choose An Item To Swap</h1>
 
             <div className="userItemsContainer">
                 {mappedItems}
+                <ToastContainer autoClose={1500} position="top-center" toastClassName="modifiedToast" />
             </div>
         </>
     )

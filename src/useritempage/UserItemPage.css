@@ -14,7 +14,7 @@
     font-size: 18px;
     border: solid #0a8f19;
     border-width: thin;
-    font-size: 1.5;
+    font-size: 1.8;
     font-weight: bold;
     padding: 10px 12px;
 }
@@ -38,11 +38,11 @@
 
 .userInfo h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .userInfo h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sulphur Point', sans-serif;
     font-size: 1.5;
 }
 

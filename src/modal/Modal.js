@@ -29,10 +29,10 @@ function Modal({item, closeModal, setToggleTradeItem, toggleTradeItem, setToggle
                 </div>
 
                 <div className='info-about-item'>
-                    <h2>Item: {item_name}</h2>
-                    <p>Description: {description}</p>
-                    <p>Original Price: ${original_pricing}</p>
-                    <p>Condition: {condition}/10</p>
+                    <h2 className="item-header">{item_name}</h2>
+                    <p className="itemContet">Description:<br/> {description}</p>
+                    <p className="itemContet">Original Price:<br/> ${original_pricing}</p>
+                    <p className="itemContet">Condition:<br/> {condition}/10</p>
                 </div>
 
                 <div>
