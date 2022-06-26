@@ -23,15 +23,14 @@ function App() {
         .then(res => res.json())
         .then(itemData => {
           setItems(itemData)
-          console.log("itemData", itemData)
           })
-}, [items.id])
+}, [])
 
   useEffect(() => {  
     fetch('http://localhost:9292/userincludeitems')
       .then(res => res.json())
       .then(data => setUserItems(data))
-},[userItems.id])
+},[userItems])
 
 
 function handleUserInfoEditClick () {
@@ -53,23 +52,22 @@ function handleRequest (item1, item2) {
   setItems(items.map(item => {
     if(item.id === item1.id) {
       return {...item, user_id: item2.user_id}
-    } else {
-      return item
     }
   }))
 .then(() => {
   setItems(items.filter(item => item.id !== item2.id))
 })
-
-  setUserItems({...userItems, items: userItems.items.map( item => {
-    if(item.id === item1.id) {
-      return item2
-    }
-    else {
-      return item
-    }
-  })
-})
+//changed this part
+//   setUserItems({...userItems, items: userItems.items.map( item => {
+//     if(item.id === item1.id) {
+//       return item2
+//     }
+//     else {
+//       return item
+//     }
+//   })
+// })
+  
 })
 savedNotify()
 }
