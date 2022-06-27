@@ -8,7 +8,6 @@
     height: 500px;
     max-height: 100%;
     animation: pop-swirl .5s;
-    /* color: white; */
 }
 
 .user-info-input-box {
@@ -34,13 +33,14 @@
     font-size: 1.5;
     font-weight: bold;
     padding: 10px 12px;
+    margin-right: 10px;
 }
 
 label {
     color: white;
 }
 
-.editProfilForm {
+.editProfileForm {
     width: 400px;
     height: 400px;
     position:relative; 

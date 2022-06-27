@@ -4,7 +4,7 @@ import ItemsContainer from '../itemscontainer/ItemsContainer';
 import './Home.css';
 //import ConfirmModal from './ConfirmModal';
 
-function Home({setShowClickedItem, showClickedItem, items, setToggleTradeItem, toggleTradeItem, setToggleNewInfo, toggleNewInfo}) {
+function Home({setShowClickedItem, showClickedItem, items}) {
     let navigate = useNavigate()
 
     const [searchItem, setSearchItem] = useState("")
@@ -27,7 +27,7 @@ function Home({setShowClickedItem, showClickedItem, items, setToggleTradeItem, t
             <input className="inputBox"type="text" placeholder="Search for items" onChange={handleSearchInput}></input>
             </div>
 
-            <ItemsContainer items={filteredListItem} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem} setToggleTradeItem={setToggleTradeItem} toggleTradeItem={toggleTradeItem} setToggleNewInfo={setToggleNewInfo} toggleNewInfo={toggleNewInfo}/>
+            <ItemsContainer items={filteredListItem} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem}/>
            
         </>
     )

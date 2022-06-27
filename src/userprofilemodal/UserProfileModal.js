@@ -47,16 +47,13 @@ function UserProfileModal({userItems, setUserItems, handleCloseModal, updateUser
       .then((res) => res.json())
       .then((newUserInfo) => setUserItems(newUserInfo))
     })
-
+    handleCloseModal()
     }
 
-
-
- 
   return (
       <>
       <div className='modal'> 
-        <form onSubmit={editUserProfile}className="editProfilForm">
+        <form onSubmit={editUserProfile}className="editProfileForm">
             <label>Name:
             <br />
             <input 
@@ -111,6 +108,7 @@ function UserProfileModal({userItems, setUserItems, handleCloseModal, updateUser
                 type="submit"
                 name="submit"
                 value="Submit Changes"
+                onClick={handleCloseModal}
             />
 
             <button className="profileformbutton" onClick={handleCloseModal}>Cancel</button>

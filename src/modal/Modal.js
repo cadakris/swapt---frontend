@@ -5,7 +5,7 @@ import'./Modal.css'
 
 // CSS for modal is in item.css
 
-function Modal({item, closeModal, setToggleTradeItem, toggleTradeItem, setToggleNewInfo}) {
+function Modal({item, closeModal}) {
 
     const navigate = useNavigate()
 
@@ -13,8 +13,6 @@ function Modal({item, closeModal, setToggleTradeItem, toggleTradeItem, setToggle
 
     function handleRequestClick() {
         navigate("/request")
-        // setToggleTradeItem(true)
-        // setToggleNewInfo(true)
     }
 
     return (

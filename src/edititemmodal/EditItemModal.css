@@ -1,4 +1,4 @@
-.editItemModal {
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -8,4 +8,38 @@
     height: 500px;
     max-height: 100%;
     animation: pop-swirl .5s;
+}
+
+.editForm {
+    width: 400px;
+    height: 400px;
+    position:relative; 
+    margin-left: auto;
+    margin-right:auto;
+    display: block;
+    padding-bottom: 8px;
+    padding-top: 60px;
+}
+
+.itemInfoInputBox {
+    width: 400px;
+    font-size: 1rem;
+    height: 2rem;
+    margin: 0 auto;
+    border: 1px solid #0a8f19;
+    border-radius: 0;
+    padding-left: 0.5rem;
+    margin-bottom: 12px;
+}
+
+.editItemButton {
+    border-color: gray;
+    background-color: white;
+    font-size: 18px;
+    border: solid #0a8f19;
+    border-width: thin;
+    font-size: 1.5;
+    font-weight: bold;
+    padding: 10px 12px;
+    margin-right: 10px;
 }

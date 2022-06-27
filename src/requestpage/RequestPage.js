@@ -6,7 +6,7 @@ import TradeImages from '../tradeimages/TradeImages'
 import 'react-toastify/dist/ReactToastify.css'
 
 
-function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest, setMoney, setSpin, spin, toggleTradeItem, setToggleTradeItem, setToggleNewInfo, toggleNewInfo}) {
+function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest, setMoney, setSpin, spin, toggleTradeItem}) {
 
     const [userInfo, setUserInfo] = useState({})
     const { bio, full_name, location, items, image } = userItems
@@ -29,18 +29,10 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
         />
     })
 
-    // function handleClick() {
-    //     navigate("/")
-    //     setToggleTradeItem(prev =>!prev)
-    //     setToggleNewInfo(prev =>!prev)
-    // }
-
     return (
         <>
             <div className='home-button-container'>
-            {/* <button onClick={handleClick} className='home-button'>Back To Home</button> */}
-            <button className='home-button' onClick={() => navigate("/")}> BACK TO HOME </button>
-            {/* <buttonn onClick={handleClick}>HOME</buttonn> */}
+            <button className='home-button' onClick={() => navigate("/")}> HOME </button>
             </div>
 
             
@@ -56,7 +48,6 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
                 </div> 
             </div>
 
-            {toggleTradeItem ? 
             <div className='card-container'>
                 <div className="user-card-container">
                     <div className='card-user-info-1'>
@@ -98,9 +89,7 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
                     </div>
                 </div>
             </div>
-            :
-            null
-        }
+
             <h1 className="userItemHeader">Choose An Item To Swap</h1>
 
             <div className="userItemsContainer">

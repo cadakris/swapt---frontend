@@ -5,7 +5,7 @@ import Form from '../form/Form';
 import UserProfileModal from '../userprofilemodal/UserProfileModal';
 import './UserItemPage.css'
 
-function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUserItems, setShowEditForm, showEditForm, handleUserInfoEditClick, updateUserInfo}) {
+function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUserItems, setShowEditForm, showEditForm, setEditUsersItem, setShowEditItemForm, showEditItemForm}) {
 
   let navigate = useNavigate()
 
@@ -19,10 +19,13 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
       item={item}
       deleteItem={deleteItem}
       showEditItem={showEditItem}
-      setShowEditItem={setShowEditItem}
+      setShowEditItem={setShowEditItem}  
       userItems={userItems}
       setUserItems={setUserItems}
-      handleEditItemClick={handleEditItemClick}
+      setEditUsersItem={setEditUsersItem}
+      setShowEditItemForm={setShowEditItemForm}
+      showEditItemForm={showEditItemForm}
+      // handleEditItemClick={handleEditItemClick}
     />
   })
   
@@ -34,10 +37,6 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
     setShowEditForm((showEditForm) => !showEditForm)
   }
 
-  function handleEditItemClick () {
-    console.log("I am clicked")
-    // setShowEditItem((showEditItem) => !showEditItem)
-  }
 
     return (
       <>
@@ -45,7 +44,7 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
           <button className="backToHomeButton" onClick={() => navigate("/")}> BACK TO HOME </button>
         </div>
 
-        {showEditForm? null: <UserProfileModal userItems={userItems} setUserItems={setUserItems} handleCloseModal={handleCloseModal} showEditForm={showEditForm} updateUserInfo={updateUserInfo}/>}
+        {showEditForm? null: <UserProfileModal userItems={userItems} setUserItems={setUserItems} handleCloseModal={handleCloseModal} showEditForm={showEditForm}/>}
 
         <div className="userInfo">
           <img className="userImage" src={image} alt={full_name}></img>

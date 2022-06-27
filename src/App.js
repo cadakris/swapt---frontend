@@ -15,8 +15,8 @@ function App() {
   const [spin, setSpin] = useState('')
   const [money, setMoney] = useState(0)
   const [showEditForm, setShowEditForm] = useState(true)
-  const [toggleTradeItem, setToggleTradeItem] = useState(true)
-  const [toggleNewInfo, setToggleNewInfo] = useState(true)
+  const [editUsersItem, setEditUsersItem] = useState({}) //This is for editimg a user's item
+  const [showEditItemForm, setShowEditItemForm] = useState(true)
 
   useEffect(() => {
     fetch('http://localhost:9292/excludeuserloggedinitems')
@@ -30,12 +30,8 @@ function App() {
     fetch('http://localhost:9292/userincludeitems')
       .then(res => res.json())
       .then(data => setUserItems(data))
-},[userItems])
+},[])
 
-
-function handleUserInfoEditClick () {
-  setShowEditForm((showEditForm) => !showEditForm)
-}
 
 const savedNotify =() => toast.dark(`You successfully swap't your item. You owe $${money}`)
 
@@ -88,8 +84,8 @@ savedNotify()
 
     <Router>
     <Routes>
-      <Route exact path='/' element={<Home showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem} items={items} setToggleTradeItem={setToggleTradeItem} toggleTradeItem={toggleTradeItem} toggleNewInfo={toggleNewInfo} setToggleNewInfo={setToggleNewInfo}/>}/>
-      <Route exact path="/request" element={<RequestPage spin={spin} setSpin={setSpin} setMoney={setMoney} handleRequest={handleRequest} cart={cart} setCart={setCart} userItems={userItems} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem} setToggleTradeItem={setToggleTradeItem} toggleTradeItem={toggleTradeItem}/>}/>
+      <Route exact path='/' element={<Home showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem} items={items}/>}/>
+      <Route exact path="/request" element={<RequestPage spin={spin} setSpin={setSpin} setMoney={setMoney} handleRequest={handleRequest} cart={cart} setCart={setCart} userItems={userItems} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem}/>}/>
       <Route exact path ="/useritempage" 
         element={<UserItemPage 
         userItems={userItems} 
@@ -97,11 +93,11 @@ savedNotify()
         deleteItem={deleteItem} 
         items={items} 
         setItems={setItems} 
-        //addItem={addItem} 
         setShowEditForm={setShowEditForm} 
         showEditForm={showEditForm} 
-        handleUserInfoEditClick={handleUserInfoEditClick} 
-        //updateUserInfo={updateUserInfo}
+        setEditUsersItem={setEditUsersItem}
+        setShowEditItemForm={setShowEditItemForm}
+        showEditItemForm={showEditItemForm}
         />}
         />
     </Routes>
@@ -110,7 +106,6 @@ savedNotify()
     </>
   )
 }
-
 export default App;
 
   

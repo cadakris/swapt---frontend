@@ -2,11 +2,22 @@ import React from 'react'
 import EditItemModal from '../edititemmodal/EditItemModal';
 import './UserItems.css'
 
-function UserItems({item, deleteItem, setShowEditItem, showEdititem, userItems, setUserItems, handleEditItemClick}) {
+function UserItems({item, deleteItem, setUserItems, setEditUsersItem, setShowEditItemForm, showEditItemForm}) {
+
+  function handleEditItemClick () {
+    setShowEditItemForm((showEditItemForm) => !showEditItemForm)
+    console.log("I am Clicked!")
+  }
+
+  function handleCloseUserItemFormModal () {
+    setShowEditItemForm((showEditItemForm) => !showEditItemForm)
+  }
+
+  console.log(showEditItemForm)
+
   return (
     <>
     <div className="useritemcard">
-
         <img className="userItemImage" alt={item.name}src={item.image_url}/>
 
       <div className="usersItemDetails">
@@ -18,10 +29,10 @@ function UserItems({item, deleteItem, setShowEditItem, showEdititem, userItems, 
 
       <div className="btnContainer">
         <button onClick={() => deleteItem(item)} className="deleteButton">Delete</button>
-        {/* <button  className="deleteButton" onClick={handleEditItemClick}>Edit</button> */}
+        <button  className="deleteButton" onClick={handleEditItemClick}>Edit</button>
       </div>
 
-      {showEdititem? null: <EditItemModal item={item} showEditItem={showEdititem} setShowEditItem={setShowEditItem} userItems={userItems} setUserItems={setUserItems}/>}
+      {showEditItemForm? null: <EditItemModal item={item} showEditItemForm={showEditItemForm} setUserItems={setUserItems} setEditUsersItem={setEditUsersItem} handleCloseUserItemFormModal={handleCloseUserItemFormModal}/>}
 
     </div>
     </>
