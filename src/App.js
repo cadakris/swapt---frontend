@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './home/Home'
 import RequestPage from './requestpage/RequestPage';
 import UserItemPage from './useritempage/UserItemPage';
-import { ToastContainer, toast} from 'react-toastify';
+import { toast} from 'react-toastify';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [userItems, setUserItems] = useState({}) //grabbing the users, then grabbing the items
@@ -32,7 +33,6 @@ function App() {
       .then(data => setUserItems(data))
 },[])
 
-
 const savedNotify =() => toast.dark(`You successfully swap't your item. You owe $${money}`)
 
 //This function handles the actual trade when clicked
@@ -45,15 +45,38 @@ function handleRequest (item1, item2) {
   })
  .then(resp => resp.json())
  .then(() => {
-  setItems(items.map(item => {
-    if(item.id === item1.id) {
-      return {...item, user_id: item2.user_id}
-    }
-  }))
-.then(() => {
-  setItems(items.filter(item => item.id !== item2.id))
+  // console.log(userItems.items)
+  // let itemsTarget = userItems.items
+  setItems(items.filter(item => item.id !== item1.id))
 })
+.then (() => {
+  fetch('http://localhost:9292/userincludeitems')
+  .then(res => res.json())
+  .then(data => setUserItems(data))
+})
+// setUserItems(userItems.filter(item => item.id !== item1.id))
+//  .then(() => {
+//   setItems(items.filter(item => {
+//     if(item.id === item1.id) {
+//       return {...item, user_id: item2.user_id}
+//     }
+//   }))
+// .then(() => {
+//   setItems(items.filter(item => item.id !== item2.id))
+// })
+// .then(() => {
+//   setUserItems({...userItems, items: userItems.items.map( item => {
+//     if(item.id !== item1.id) {
+//       return item2
+//     }
+//     else {
+//       return item
+//     }
+//   })
+// })
+// })
 //changed this part
+
 //   setUserItems({...userItems, items: userItems.items.map( item => {
 //     if(item.id === item1.id) {
 //       return item2
@@ -63,8 +86,7 @@ function handleRequest (item1, item2) {
 //     }
 //   })
 // })
-  
-})
+// })
 savedNotify()
 }
 
@@ -85,8 +107,8 @@ savedNotify()
     <Router>
     <Routes>
       <Route exact path='/' element={<Home showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem} items={items}/>}/>
-      <Route exact path="/request" element={<RequestPage spin={spin} setSpin={setSpin} setMoney={setMoney} handleRequest={handleRequest} cart={cart} setCart={setCart} userItems={userItems} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem}/>}/>
-      <Route exact path ="/useritempage" 
+      <Route path="/request" element={<RequestPage spin={spin} setSpin={setSpin} setMoney={setMoney} handleRequest={handleRequest} cart={cart} setCart={setCart} userItems={userItems} showClickedItem={showClickedItem} setShowClickedItem={setShowClickedItem}/>}/>
+      <Route path ="/useritempage" 
         element={<UserItemPage 
         userItems={userItems} 
         setUserItems={setUserItems} 

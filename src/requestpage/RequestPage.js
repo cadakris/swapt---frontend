@@ -35,7 +35,6 @@ function RequestPage({ userItems, showClickedItem, setCart, cart, handleRequest,
             <button className='home-button' onClick={() => navigate("/")}> HOME </button>
             </div>
 
-            
             <div className='product-card-container'>
                 < div className = 'details' >
                     <h1 className='item-name'>{showClickedItem.item_name}</h1>
