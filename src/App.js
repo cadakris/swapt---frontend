@@ -18,6 +18,7 @@ function App() {
   const [showEditForm, setShowEditForm] = useState(true)
   const [editUsersItem, setEditUsersItem] = useState({}) //This is for editimg a user's item
   const [showEditItemForm, setShowEditItemForm] = useState(true)
+  const [itemClickedToEdit, setItemClickedToEdit] = useState({})
 
   useEffect(() => {
     fetch('http://localhost:9292/excludeuserloggedinitems')
@@ -90,13 +91,15 @@ function handleRequest (item1, item2) {
 savedNotify()
 }
 
-//Delete the item when it is actually switched
+//Delete item
   function deleteItem(deletedItem) {
     fetch(`http://localhost:9292/itemdelete/${deletedItem.id}`, {
       method: "DELETE",
     })
       setUserItems({...userItems, items: userItems.items.filter(item => item.id !== deletedItem.id)})
   }
+
+  //This edits the item when clicked
 
   return (
     <>
@@ -120,6 +123,8 @@ savedNotify()
         setEditUsersItem={setEditUsersItem}
         setShowEditItemForm={setShowEditItemForm}
         showEditItemForm={showEditItemForm}
+        setItemClickedToEdit={setItemClickedToEdit}
+        itemClickedToEdit={itemClickedToEdit}
         />}
         />
     </Routes>

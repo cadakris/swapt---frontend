@@ -5,7 +5,7 @@ import Form from '../form/Form';
 import UserProfileModal from '../userprofilemodal/UserProfileModal';
 import './UserItemPage.css'
 
-function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUserItems, setShowEditForm, showEditForm, setEditUsersItem, setShowEditItemForm, showEditItemForm}) {
+function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUserItems, setShowEditForm, showEditForm, setEditUsersItem, setShowEditItemForm, showEditItemForm, setItemClickedToEdit, itemClickedToEdit}) {
 
   let navigate = useNavigate()
 
@@ -25,6 +25,8 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
       setEditUsersItem={setEditUsersItem}
       setShowEditItemForm={setShowEditItemForm}
       showEditItemForm={showEditItemForm}
+      setItemClickedToEdit={setItemClickedToEdit}
+      itemClickedToEdit={itemClickedToEdit}
       // handleEditItemClick={handleEditItemClick}
     />
   })
@@ -36,7 +38,6 @@ function UserItemPage({userItems, deleteItem, items1, setItems, addItem, setUser
   function handleUserInfoEditClick () {
     setShowEditForm((showEditForm) => !showEditForm)
   }
-
 
     return (
       <>

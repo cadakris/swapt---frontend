@@ -2,18 +2,18 @@ import React from 'react'
 import EditItemModal from '../edititemmodal/EditItemModal';
 import './UserItems.css'
 
-function UserItems({item, deleteItem, setUserItems, setEditUsersItem, setShowEditItemForm, showEditItemForm}) {
+function UserItems({item, deleteItem, setUserItems, setEditUsersItem, setShowEditItemForm, showEditItemForm, setItemClickedToEdit, itemClickedToEdit}) {
 
   function handleEditItemClick () {
+    setItemClickedToEdit(item)
     setShowEditItemForm((showEditItemForm) => !showEditItemForm)
-    console.log("I am Clicked!")
   }
 
   function handleCloseUserItemFormModal () {
     setShowEditItemForm((showEditItemForm) => !showEditItemForm)
   }
 
-  console.log(showEditItemForm)
+  // console.log(showEditItemForm)
 
   return (
     <>
@@ -29,10 +29,10 @@ function UserItems({item, deleteItem, setUserItems, setEditUsersItem, setShowEdi
 
       <div className="btnContainer">
         <button onClick={() => deleteItem(item)} className="deleteButton">Delete</button>
-        <button  className="deleteButton" onClick={handleEditItemClick}>Edit</button>
+        <button  className="deleteButton" onClick={() => handleEditItemClick(item)}>Edit</button>
       </div>
 
-      {showEditItemForm? null: <EditItemModal item={item} showEditItemForm={showEditItemForm} setUserItems={setUserItems} setEditUsersItem={setEditUsersItem} handleCloseUserItemFormModal={handleCloseUserItemFormModal}/>}
+      {showEditItemForm? null: <EditItemModal item={item} showEditItemForm={showEditItemForm} setUserItems={setUserItems} setEditUsersItem={setEditUsersItem} handleCloseUserItemFormModal={handleCloseUserItemFormModal} itemClickedToEdit={itemClickedToEdit}/>}
 
     </div>
     </>

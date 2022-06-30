@@ -37,7 +37,10 @@ function Form({addItem, setUserItems, userItems}){
         .then(() => {
             fetch('http://localhost:9292/userincludeitems')
             .then((res) => res.json())
-            .then((newItem => setUserItems(newItem)))
+            .then((newItem => {
+                 console.log(newItem)
+                setUserItems(newItem)}))
+            
         })
     }
 

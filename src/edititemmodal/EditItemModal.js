@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './EditItemModal.css'
 
-function EditItemModal({setUserItems, handleCloseUserItemFormModal, item}) {
+function EditItemModal({setUserItems, handleCloseUserItemFormModal, item, itemClickedToEdit}) {
 
-  const {item_name, description, original_pricing,condition} = item
+  const {item_name, description, original_pricing,condition} = itemClickedToEdit
 
   const [formState, setFormState] = useState({
     item_name: `${item_name}`,
@@ -18,7 +18,7 @@ function EditItemModal({setUserItems, handleCloseUserItemFormModal, item}) {
 
   const editUserItems = (e) => {
     e.preventDefault()
-    fetch(`http://localhost:9292/edituseritems/${item.id}`, {
+    fetch(`http://localhost:9292/edituseritems/${itemClickedToEdit.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
