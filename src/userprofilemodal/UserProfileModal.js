@@ -46,6 +46,7 @@ function UserProfileModal({userItems, setUserItems, handleCloseModal, updateUser
       fetch('http://localhost:9292/userincludeitems')
       .then((res) => res.json())
       .then((newUserInfo) => setUserItems(newUserInfo))
+      
     })
     handleCloseModal()
     }
@@ -108,7 +109,7 @@ function UserProfileModal({userItems, setUserItems, handleCloseModal, updateUser
                 type="submit"
                 name="submit"
                 value="Submit Changes"
-                onClick={handleCloseModal}
+                // onClick={handleCloseModal}
             />
 
             <button className="profileformbutton" onClick={handleCloseModal}>Cancel</button>
